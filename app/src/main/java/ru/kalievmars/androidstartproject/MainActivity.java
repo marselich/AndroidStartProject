@@ -14,12 +14,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.second_layout);
 
-        TextView textView = findViewById(R.id.normal);
-
-        textView.setText("Text from Java code");
-        textView.setTextColor(Color.RED);
+//        TextView textView = findViewById(R.id.normal);
+//
+//        textView.setText("Text from Java code");
+//        textView.setTextColor(Color.RED);
 
 
 //        TextView textView = findViewById(R.id.header);
