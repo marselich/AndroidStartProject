@@ -13,11 +13,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.second_layout);
+        setContentView(R.layout.activity_main);
 
-        TextView textView = findViewById(R.id.header);
-
-        textView.setText("Hello from Java");
+//        TextView textView = findViewById(R.id.header);
+//
+//        textView.setText("Hello from Java");
 
 //        ConstraintLayout constraintLayout = new ConstraintLayout(this);
 //
