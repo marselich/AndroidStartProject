@@ -14,10 +14,12 @@ import android.widget.Toast;
 public class Calculator extends AppCompatActivity {
 
     private  static final String LogcatTag = "CALCULATOR_ACTIVITY";
+    private  static final String LifecycleTag = "LIFECYCLE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Log.d(LifecycleTag, "I'm onCreate() and I'm started");
         setContentView(R.layout.activity_calculator);
 
         final Button calculate = (Button) findViewById(R.id.calc);
@@ -29,6 +31,36 @@ public class Calculator extends AppCompatActivity {
                 calculateAnswer();
             }
         });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d(LifecycleTag, "I'm onStart() and I'm started");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d(LifecycleTag, "I'm onStop() and I'm started");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d(LifecycleTag, "I'm onDestroy() and I'm started");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d(LifecycleTag, "I'm onPause() and I'm started");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d(LifecycleTag, "I'm onResume() and I'm started");
     }
 
     private void calculateAnswer() {
