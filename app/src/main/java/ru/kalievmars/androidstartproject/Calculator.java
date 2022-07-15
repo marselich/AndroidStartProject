@@ -45,13 +45,29 @@ public class Calculator extends AppCompatActivity {
 
         Log.d(LogcatTag, "All views have been founded");
 
-        float x = Integer.parseInt(numOne.getText().toString());
-        float y = Integer.parseInt(numTwo.getText().toString());
+        String num1 = numOne.getText().toString();
+        String num2 = numTwo.getText().toString();
+
+        double x = 0;
+        double y = 0;
+
+        if(!num1.equals("") && num1 != null) {
+            x = Double.parseDouble(num1);
+        } else {
+            Toast.makeText(this, "Number one is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(!num2.equals("") && num2 != null) {
+            y = Double.parseDouble(num2);
+        } else {
+            Toast.makeText(this, "Number two is empty", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         Log.d(LogcatTag, "Successfully grabbed data from input fields");
         Log.d(LogcatTag, "x = " + x + " y = " + y);
 
-        float solution = 0;
+        double solution = 0;
 
         switch(radioGroup.getCheckedRadioButtonId()) {
             case R.id.add:

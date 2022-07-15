@@ -18,7 +18,8 @@
       android:inputType="numberDecimal"
       app:layout_constraintEnd_toStartOf="@+id/editTextNumberDecimal2"
       app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent" />
+      app:layout_constraintTop_toTopOf="parent"
+      android:text="0"/>
 
   <EditText
       android:id="@+id/editTextNumberDecimal2"
@@ -30,7 +31,8 @@
       app:layout_constraintBottom_toBottomOf="@+id/editTextNumberDecimal"
       app:layout_constraintEnd_toEndOf="parent"
       app:layout_constraintHorizontal_chainStyle="spread"
-      app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal" />
+      app:layout_constraintStart_toEndOf="@+id/editTextNumberDecimal"
+      android:text="0"/>
 
   <RadioGroup
       android:id="@+id/radioGroup"
