@@ -5,7 +5,8 @@
       <map>
         <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2925" />
         <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2925" />
-        <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/layout/activity_main.xml" value="0.5" />
+        <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/layout/activity_calculator.xml" value="0.33" />
+        <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/layout/second_layout.xml" value="0.33" />
         <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/menu/menu_start.xml" value="0.33" />
         <entry key="..\:/androidProjects/projects/AndroidStartProject/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2925" />
