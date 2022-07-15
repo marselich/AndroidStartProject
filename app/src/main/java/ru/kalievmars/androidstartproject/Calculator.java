@@ -3,6 +3,7 @@ package ru.kalievmars.androidstartproject;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cursoradapter.widget.SimpleCursorAdapter;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -38,11 +39,18 @@ public class Calculator extends AppCompatActivity {
 //            // Shared prefs доступ с использованием контекста приложения
 //        SharedPreferences prefs = getApplicationContext().getSharedPreferences("PREFS", MODE_PRIVATE);
 
+
+        // intent (намерения) - посылка, используется для создания или открытия новых окон, даже других приложений (например камера в смартфоне)
+        // бывают явные и неявные. Явные = это конкретные приложения (открой именно ТУ камеру), неявные = приложения на выбор удовлетворяющие одинаковым критериям (открыть любой браузер из доступных)
+
+
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d(LogcatTag, "button pushed");
                 calculateAnswer();
+                Intent i = new Intent(Calculator.this, MainActivity.class); // написать письмо
+                startActivity(i); // отправить его
             }
         });
     }
