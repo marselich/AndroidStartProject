@@ -2,6 +2,7 @@ package ru.kalievmars.androidstartproject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -11,6 +12,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class Calculator extends AppCompatActivity {
+
+    private  static final String LogcatTag = "CALCULATOR_ACTIVITY";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,6 +25,7 @@ public class Calculator extends AppCompatActivity {
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.d(LogcatTag, "button pushed");
                 calculateAnswer();
             }
         });
@@ -39,30 +43,44 @@ public class Calculator extends AppCompatActivity {
 
         TextView result = (TextView) findViewById(R.id.result);
 
+        Log.d(LogcatTag, "All views have been founded");
+
         float x = Integer.parseInt(numOne.getText().toString());
         float y = Integer.parseInt(numTwo.getText().toString());
+
+        Log.d(LogcatTag, "Successfully grabbed data from input fields");
+        Log.d(LogcatTag, "x = " + x + " y = " + y);
 
         float solution = 0;
 
         switch(radioGroup.getCheckedRadioButtonId()) {
             case R.id.add:
+                Log.d(LogcatTag, "Operation is add");
                 solution = x + y;
                 break;
             case R.id.subtract:
+                Log.d(LogcatTag, "Operation is sub");
                 solution = x - y;
                 break;
             case R.id.multiply:
+                Log.d(LogcatTag, "Operation is multiply");
                 solution = x * y;
                 break;
             case R.id.divide:
+                Log.d(LogcatTag, "Operation is divide");
                 if(y == 0) {
                     Toast.makeText(this, "Number two cannot be zero", Toast.LENGTH_SHORT).show();
+                    Log.e(LogcatTag, "Number two cannot be zero");
                     return;
                 }
                 solution = x / y;
 
                 break;
         }
+
+        Log.d(LogcatTag, "The result of operations is: " + solution);
+
+        //Log.wtf(); // what a Terrible Failre == error
 
         result.setText("The answer is " + solution);
     }
