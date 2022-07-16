@@ -85,7 +85,19 @@ public class Calculator extends AppCompatActivity {
         Log.d(LifecycleTag, "I'm onResume() and I'm started");
     }
 
+
+
+
     private void calculateAnswer() {
+
+
+//        try {
+//            int a = 25/ 0;
+//        } catch (ArithmeticException e) {
+//            e.printStackTrace();
+//        }
+
+
         EditText numOne = (EditText) findViewById(R.id.editTextNumberDecimal);
         EditText numTwo = (EditText) findViewById(R.id.editTextNumberDecimal2);
 
