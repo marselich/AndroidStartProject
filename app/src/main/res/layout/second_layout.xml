@@ -127,7 +127,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/et"
         android:layout_alignStart="@+id/et"
-        android:layout_alignEnd="@+id/et" />
+        android:layout_alignEnd="@+id/et"
+        android:gravity="center"/>
 
     <Button
         android:id="@+id/button"

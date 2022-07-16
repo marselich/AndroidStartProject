@@ -1,5 +1,9 @@
 package ru.kalievmars.androidstartproject;
 
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
@@ -20,6 +24,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     EditText et;
     TextView tv;
     Button button, button2, button3;
+
+    ActivityResultLauncher<Intent> mStartActivityForResult = registerForActivityResult(
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    Intent intent = result.getData();
+                    tv.setText(intent.getStringExtra("tv"));
+                }
+            }
+    );
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.button3:
                 i = new Intent(this, ComeBackActivivty.class);
-                startActivityForResult(i, REQ_C);
+                mStartActivityForResult.launch(i);
                 break;
         }
     }

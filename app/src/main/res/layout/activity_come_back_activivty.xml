@@ -6,4 +6,24 @@
     android:layout_height="match_parent"
     tools:context=".ComeBackActivivty">
 
+    <EditText
+        android:id="@+id/sendBackTextEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/sendBackBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Send back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/sendBackTextEdit"
+        app:layout_constraintStart_toStartOf="@+id/sendBackTextEdit"
+        app:layout_constraintTop_toBottomOf="@+id/sendBackTextEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>
