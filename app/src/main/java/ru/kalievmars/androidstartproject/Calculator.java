@@ -16,16 +16,24 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.IOException;
+
 public class Calculator extends AppCompatActivity {
 
     private  static final String LogcatTag = "CALCULATOR_ACTIVITY";
     private  static final String LifecycleTag = "LIFECYCLE";
+
+    EditText numOne, numTwo;
+    TextView result;
+    RadioGroup radioGroup;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(LifecycleTag, "I'm onCreate() and I'm started");
         setContentView(R.layout.activity_calculator);
+
+
 
         final Button calculate = (Button) findViewById(R.id.calc);
 
@@ -48,9 +56,27 @@ public class Calculator extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.d(LogcatTag, "button pushed");
-                calculateAnswer();
+                try {
+                    calculateAnswer();
+                } catch (Exception e) {
+                        // прерывание
+//                    e.printStackTrace();
+//                    Toast.makeText(Calculator.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+//                    finish();
+                        // востановление
+                    e.printStackTrace();
+                    Toast.makeText(Calculator.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                    dropFields();
+                }
+//                catch (IOException e) {
+//                    Toast.makeText(Calculator.this, "Here io error", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                } catch(ArithmeticException e) {
+//                    Toast.makeText(Calculator.this, "Here arithmetic error", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                }
                 Intent i = new Intent(Calculator.this, MainActivity.class); // написать письмо
-                startActivity(i); // отправить его
+//                startActivity(i); // отправить его
             }
         });
     }
@@ -86,28 +112,39 @@ public class Calculator extends AppCompatActivity {
     }
 
 
+    private void dropFields() {
+        numOne.setText("0");
+        numTwo.setText("0");
+        RadioButton rb = (RadioButton) radioGroup.getChildAt(0);
+        rb.setChecked(true);
+        result.setText("Your answer will displayed here");
+    }
 
-
-    private void calculateAnswer() {
+    private void calculateAnswer() throws ArithmeticException, IOException {
 
 
 //        try {
-//            int a = 25/ 0;
+//         //   int a = 25/ 0;
+//
+//            throw new ArithmeticException("I am generated exception");
+//
 //        } catch (ArithmeticException e) {
-//            e.printStackTrace();
+////            e.printStackTrace();
+//            Toast.makeText(this, "There is a problem inside an app", Toast.LENGTH_SHORT).show();
+//            finish();
 //        }
 
 
-        EditText numOne = (EditText) findViewById(R.id.editTextNumberDecimal);
-        EditText numTwo = (EditText) findViewById(R.id.editTextNumberDecimal2);
+        numOne = (EditText) findViewById(R.id.editTextNumberDecimal);
+        numTwo = (EditText) findViewById(R.id.editTextNumberDecimal2);
 
-        RadioGroup radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        radioGroup = (RadioGroup) findViewById(R.id.radioGroup);
 //        RadioButton add = (RadioButton) findViewById(R.id.add);
 //        RadioButton sub = (RadioButton) findViewById(R.id.subtract);
 //        RadioButton multiply = (RadioButton) findViewById(R.id.multiply);
 //        RadioButton divide = (RadioButton) findViewById(R.id.divide);
 
-        TextView result = (TextView) findViewById(R.id.result);
+        result = (TextView) findViewById(R.id.result);
 
         Log.d(LogcatTag, "All views have been founded");
 
@@ -165,6 +202,13 @@ public class Calculator extends AppCompatActivity {
         //Log.wtf(); // what a Terrible Failre == error
 
         result.setText("The answer is " + solution);
+
+        switch ((int)Math.random() * 2) {
+            case 0: throw new ArithmeticException("I am generated arithmetic exception");
+            case 1: throw new IOException("I am generated ioException exception");
+        }
+
+
     }
 
 }
